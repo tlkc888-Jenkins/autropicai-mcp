@@ -1,0 +1,1 @@
+{"name":"autropicai-mcp","version":"1.0.0","main":"index.js","bin":{"autropicai-mcp":"./index.js"},"type":"module","repository":{"type":"git","url":"https://github.com/autropic/autropicai-mcp"},"dependencies":{"@modelcontextprotocol/sdk":"^1.0.0"}}
