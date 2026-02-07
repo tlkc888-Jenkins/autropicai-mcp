@@ -1,1 +1,26 @@
-{"name":"autropicai-mcp","version":"1.0.0","main":"index.js","bin":{"autropicai-mcp":"./index.js"},"type":"module","repository":{"type":"git","url":"https://github.com/autropic/autropicai-mcp"},"dependencies":{"@modelcontextprotocol/sdk":"^1.0.0"}}
+{
+  "name": "autropicai-mcp",
+  "version": "2.0.0",
+  "description": "MCP server discovery — find and install MCP servers for any task",
+  "main": "index.js",
+  "bin": {
+    "autropicai-mcp": "./index.js"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tlkc888-Jenkins/autropicai-mcp"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "claude",
+    "ai-tools",
+    "tool-discovery"
+  ],
+  "author": "Autropic Pty Ltd",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0"
+  }
+}

@@ -1,8 +1,16 @@
-# AutropicAI MCP Server
+# AutropicAI — MCP Server Discovery
 
-Find the cheapest LLM for any task. **800+ models. Zero signup. Just works.**
+**One MCP server to find them all.**
 
-## Install (Claude Desktop)
+Find and install MCP servers without leaving your AI assistant. Ask what tool you need, get the answer with ready-to-paste config.
+
+## Why?
+
+- **Token-efficient** — One tool call instead of loading 100 tool descriptions
+- **Always current** — We index 100+ MCP servers and growing
+- **One-click config** — Returns ready-to-paste Claude Desktop config
+
+## Quick Install
 
 Add to your `claude_desktop_config.json`:
 
@@ -11,39 +19,85 @@ Add to your `claude_desktop_config.json`:
   "mcpServers": {
     "autropicai": {
       "command": "npx",
-      "args": ["github:tlkc888-Jenkins/autropicai-mcp"]
+      "args": ["-y", "github:tlkc888-Jenkins/autropicai-mcp"]
     }
   }
 }
 ```
 
-**That's it. No API key needed.**
+Restart Claude Desktop. Done.
 
-## What You Get
+## Usage
 
-Ask Claude: *"What's the cheapest model for a simple extraction task?"*
+### For Agents
 
-Claude uses the tool and returns:
+Just ask Claude:
+- "I need to send emails, find me an MCP server"
+- "What MCP servers are available for databases?"
+- "How do I install the Slack MCP server?"
+
+### Tools Available
+
+#### `find_mcp_server`
+Find an MCP server for a specific task.
+
 ```
-1. OPENROUTER/llama-3.2-1b — $0.005/$0.01 per 1M tokens
-2. GROQ/llama-3.1-8b — $0.05/$0.08 per 1M tokens
-3. DEEPSEEK/deepseek-chat — $0.014/$0.028 per 1M tokens
+Input: { "task": "send emails" }
+Output: Server details + install config
 ```
 
-Compare to GPT-4o at $5/$15 per 1M. **That's 1000x cheaper.**
+#### `list_mcp_servers`
+Browse available servers by category.
 
-## Tiers
+```
+Input: { "category": "communication" }
+Output: List of matching servers
+```
 
-| Tier | Use Case | Max Cost |
-|------|----------|----------|
-| simple | Q&A, extraction, formatting | $1/1M |
-| standard | Chat, summarization | $5/1M |
-| complex | Coding, analysis | $20/1M |
-| max | Best available | Unlimited |
+#### `get_mcp_server_details`
+Get full details for a specific server.
+
+```
+Input: { "slug": "slack" }
+Output: Full details + install config
+```
+
+## Example
+
+**You:** "I need to query a PostgreSQL database"
+
+**Claude (using AutropicAI):**
+```
+## PostgreSQL
+Read-only database access with schema inspection
+
+**Install:** `npx @modelcontextprotocol/server-postgres`
+
+**Claude Desktop Config:**
+{
+  "postgres": {
+    "command": "npx",
+    "args": ["@modelcontextprotocol/server-postgres"]
+  }
+}
+```
+
+## Categories
+
+- `data-files` — Databases, file systems, cloud storage
+- `developer-tools` — Git, CI/CD, code analysis
+- `communication` — Email, Slack, Discord, messaging
+- `productivity` — Calendar, notes, task management
+- `web-browser` — Scraping, search, automation
+- `ai-ml` — Model APIs, embeddings, inference
+- `finance` — Payments, banking, crypto
+- `infrastructure` — Cloud, containers, monitoring
 
 ## Links
 
-- **API**: https://tryautropic.com (free, no signup)
-- **Company**: https://autropic.com
+- **Directory:** https://tryautropic.com
+- **GitHub:** https://github.com/tlkc888-Jenkins/autropicai-mcp
+
+## License
 
 MIT — Autropic Pty Ltd
